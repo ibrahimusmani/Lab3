@@ -78,7 +78,7 @@ public class RestaurantTest {
         int i = 5;
         String res = "xl";
         Restaurant instance = new Restaurant();
-        String expResult = "serving a, b, c, d";
+        String expResult = "Serving a, b, c, d";
         String result = instance.serve(s, i, res);
         assertEquals(expResult, result);
     }
@@ -173,6 +173,22 @@ public class RestaurantTest {
         String expResult = "Error";//Because there was an error with preparation of food
         String result = instance.serve(s, i, res);
         assertEquals(expResult, result);
+    }
+
+    /**
+     * Test of schedule method, of class Restaurant.
+     */
+    @Test
+    public void testSchedule() {
+        System.out.println("schedule");
+        Restaurant instance = new Restaurant();
+        instance.dates.add("20");
+        instance.names.add("Ibrahim");
+        instance.times.add("15");
+        String expResult = "Ibrahim\t\t20th\t15hrs\n";
+        String result = instance.schedule();
+        assertEquals(expResult, result);
+
     }
     
 }
